@@ -40,7 +40,7 @@
               class="button regular-button cyan-background">
               Add task
             </button>
-            <button class="sign-out-cta">Sign out</button>
+            <button id="confirmSignOut" class="sign-out-cta">Sign out</button>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
               <!-- list-bulleted -->
               <iconify-icon
                 icon="material-symbols:format-list-bulleted-rounded"
-                style="color: black"
+                class="radio-icon"
                 width="24"
                 height="24"
               ></iconify-icon>
@@ -79,7 +79,7 @@
               <!-- grid -->
               <iconify-icon
                 icon="ic:round-grid-view"
-                style="color: black"
+                class="radio-icon"
                 width="24"
                 height="24"
               ></iconify-icon>
@@ -623,9 +623,19 @@
         </div>						
       </div>
     </div>
-    <!-- import IconifyIcon web component -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
-    <!-- js -->
-    <script src="../js/main.js"></script>
+     <!-- import IconifyIcon web component -->
+     <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+     <!-- js -->
+     <script src="../js/main.js"></script>
+     <script>
+       function confirmSignOut() {
+          console.log("Sign out button clicked"); // Add this line
+          const confirmation = confirm("Are you sure you want to log out?");
+          if (confirmation) {
+              window.location.href = "../login.html"; // Change this to your actual login page URL
+          }
+       }
+     </script>
+    
   </body>
 </html>

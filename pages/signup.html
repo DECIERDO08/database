@@ -23,7 +23,7 @@
         class="left-column flex flex-column height-full justify-center items-center"
       >
         <h1 class="welcoming-title">Start your journey with us</h1>
-        <form class="form" autocomplete="off">
+        <form id="signupForm" class="form" autocomplete="off">
           <label for="email" class="label">Email</label>
           <input type="email" name="email" id="email" class="input" required />
 
@@ -48,8 +48,35 @@
           <a href="./login.html" class="log-in-link">Log in</a>
         </p>
       </div>
+
       <!-- right side -->
-      <div class="right-column"></div>
+      <div class="right-column">
+        <div class="right-column-container">
+          <H1>TASKIFY</H1>
+          <P>Your personal hub for managing tasks with ease and efficiency. Whether you're a student juggling assignments, a professional managing projects, or simply organizing personal to-dos, we're here to help you stay on track and productive.</P>
+          <p>Sign up to get started or log in to continue where you left off! Let’s make task management easier and more organized—together!</p>
+        </div>
+      </div>
     </div>
+
+     <!-- Notification popup -->
+    <div id="notification" class="notification hide">
+      <span>Account created successfully! Redirecting to the dashboard...</span>
+    </div>
+
+    <script>
+      document.getElementById('signupForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Show notification popup
+        const notification = document.getElementById('notification');
+        notification.classList.add('show'); // Show notification
+
+        // After 2 seconds, redirect to dashboard
+        setTimeout(function () {
+          window.location.href = './dashboard.html'; // Redirect to the dashboard page
+        }, 2000); // 2 seconds delay before redirection
+      });
+    </script>
   </body>
 </html>

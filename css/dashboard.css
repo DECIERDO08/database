@@ -1,5 +1,7 @@
 body {
-    background:linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)), url(../img/schedule-reminder.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body.overflow-hidden {
@@ -28,7 +30,7 @@ body.overflow-hidden {
 
 /* radio buttons for view options */
 .radio-buttons-container {
-	box-shadow: 0px -2px 25px rgba(255, 255, 255, 1), 0px 2px 25px rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5), 0px 2px 5px rgba(0, 0, 0, 0.5);
     margin-top: var(--space-32);
 }
 
@@ -61,7 +63,19 @@ body.overflow-hidden {
 
 /* direct sibling */
 .radio-buttons-container .radio-input:checked + .radio-label {
-    background-color: #00FFFF;
+    background-color: #2d3e50;
+}
+
+/* Change the icon and text color when the radio button is checked */
+.radio-buttons-container .radio-input:checked + .radio-label .radio-icon,
+.radio-buttons-container .radio-input:checked + .radio-label span {
+  color: white;
+}
+
+/* Adjust icon color to black when unchecked */
+.radio-buttons-container .radio-input:not(:checked) + .radio-label .radio-icon,
+.radio-buttons-container .radio-input:not(:checked) + .radio-label span {
+  color: black;
 }
 
 /* lists view */
@@ -77,15 +91,15 @@ body.overflow-hidden {
 }
 
 .list-view .list-container.pink {
-    box-shadow: 0px 0px 15px 5px rgba(255, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 0.5);
 }
 
 .list-view .list-container.blue {
-    box-shadow: 0px 0px 45px 15px rgba(0, 0, 255, 0.5);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 255, 0.5);
 }
 
 .list-view .list-container.green {
-    box-shadow: 0px 0px 30px 10px rgba(0, 255, 0, 0.5);
+    box-shadow: 0px 0px 10px 5px rgba(0, 255, 0, 0.5);
 }
 
 .list-header {
@@ -314,6 +328,7 @@ body.overflow-hidden {
     top: 0;
 }
 .cyan-background {
-    background-color: cyan;
-    color: black; 
+    background-color: #2d3e50;
+    color: white;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); 
 }

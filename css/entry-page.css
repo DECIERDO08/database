@@ -1,6 +1,62 @@
+/* Right Content */
+
+/* Base styles for .right-column */
 .right-column {
-  display: none;
+  position: relative;
+  display: none; /* Initially hide it on smaller screens */
+  padding: var(--space-16); /* Padding for inner spacing */
+  color: white;
+  height: 100%;
+  display: flex; /* Enable flexbox for vertical centering */
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Align content to the center */
 }
+
+/* Overlay style */
+.right-column::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(130deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); /* 50% transparency overlay */
+  z-index: 1; /* Ensure the overlay is below the text */
+}
+
+.right-column-container {
+  background:  #2d3e50;
+  box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-8);
+  width: 100%; /* Ensure it takes the full width of its parent */
+  max-width: 500px; /* Set a max-width to avoid content overflowing */
+  padding: 20px;
+  margin: 0 auto; /* Center horizontally */
+  margin-top: 250px; 
+  position: relative;
+  z-index: 2;
+}
+
+/* Text styles */
+.right-column h1 {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  color: rgb(218, 223, 225);
+  margin-bottom: var(--space-16);
+  z-index: 3; /* Ensure text is above overlay */
+}
+
+.right-column p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: var(--space-16);
+  z-index: 3; /* Ensure text is above overlay */
+}
+
+/* Left Content */
 
 .left-column {
   padding: var(--space-16);
@@ -18,6 +74,8 @@
 .cta-btn {
   width: 100%;
   margin-top: var(--space-32);
+  background-color: #2d3e50;
+  color: white;
 }
 
 .sign-up-prompt,
@@ -32,27 +90,73 @@
 .log-in-link {
   font-weight: 600;
   text-decoration: underline;
+  transition: transform 0.2s ease-in-out;
+  display: inline-block;
 }
 
-/* media queries */
+.sign-up-link:hover,
+.log-in-link:hover {
+  color: #2d3e50;
+}
+
+
+/* Notification Style */
+.notification {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  height: 60px;
+  font-weight: 600;
+  font-size: 16px;
+  width: 100%;
+  max-width: 375px;
+  transition: top 0.5s;
+  background-color: #4caf50; /* Green background for success */
+  color: white;
+  border-radius: 5px;
+}
+
+.notification.show {
+  top: 0; /* Show notification when the class 'show' is added */
+}
+
+
+/* Responsive layout */
 @media (min-width: 768px) {
+  /* Show .right-column only on larger screens */
   .right-column {
-    display: block;
-    border-left: 2px solid var(--black);
-    background-image: url("../img/gears.png");
+    display: block; /* Show it on large screens */
+    border-left: 2px solid var(--black); /* Divider between the columns */
+    background-image: url("../img/todo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    padding: var(--space-32);
+    color: white;
+    text-align: left; /* Align text to the left */
   }
 
+  .right-column h1 {
+    font-size: 48px; /* Larger font size for the heading on bigger screens */
+  }
+
+  .right-column p {
+    font-size: 15px; /* Slightly larger font size for paragraphs */
+  }
+
+  /* Row styles to make both columns side by side */
   .row {
-    /* bring columns beside each other */
     display: flex;
+    height: 100vh; /* Ensure the columns take full screen height */
   }
 
   .left-column,
   .right-column {
-    /* equal-width columns */
-    width: 50%;
+    width: 50%; /* Equal-width columns */
   }
 }
